@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processors - AMD UIX</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white font-sans min-h-screen">
+  <!-- Background Video -->
+  <div class="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-50">
+      <source src="background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="flex justify-center items-start min-h-screen">
+    <div class="bg-black/70 p-8 rounded-xl text-center w-full max-w-5xl mt-4 overflow-y-auto max-h-[90vh]">
+      <h1 class="text-3xl font-bold text-red-500 mb-4">AMD Processors</h1>
+      <p class="mb-8">Explore AMD's latest desktop and server processors.</p>
+      
+      <!-- Ryzen Series Container -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-semibold text-red-400 mb-4">Ryzen Series</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Ryzen 5000 -->
+          <div onclick="openModal('ryzen5000')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/Ryzen-5000-series.jpg" alt="Ryzen 5000 Series" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">Ryzen 5000 Series</h3>
+            <p class="text-gray-400 mb-2 text-sm">Zen 3 architecture for powerful gaming and productivity.</p>
+          </div>
+          <!-- Ryzen 7000 -->
+          <div onclick="openModal('ryzen7000')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/Ryzen-7000-series.jpg" alt="Ryzen 7000 Series" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">Ryzen 7000 Series</h3>
+            <p class="text-gray-400 mb-2 text-sm">Zen 4 architecture, PCIe 5.0, DDR5 support, AM5 platform.</p>
+          </div>
+          <!-- Ryzen 8000 -->
+          <div onclick="openModal('ryzen8000')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/Ryzen-8000-series.jpg" alt="Ryzen 8000 Series" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">Ryzen 8000 Series</h3>
+            <p class="text-gray-400 mb-2 text-sm">Next-gen performance for advanced gaming and creation.</p>
+          </div>
+          <!-- Ryzen 9000 -->
+          <div onclick="openModal('ryzen9000')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/AMD-Ryzen-9000-Series.jpg" alt="Ryzen 9000 Series" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">Ryzen 9000 Series</h3>
+            <p class="text-gray-400 mb-2 text-sm">Latest flagship desktop CPUs for ultimate performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Threadripper Container -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-semibold text-red-400 mb-4">Threadripper</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div onclick="openModal('threadripper')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/AMD-Threadripper.jpg" alt="Threadripper" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">Ryzen Threadripper</h3>
+            <p class="text-gray-400 mb-2 text-sm">Extreme multi-core CPUs for professionals, creators, and workstations.</p>
+          </div>
+          <div onclick="openModal('threadripperpro')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/AMD-Threadripper-Pro.jpg" alt="Threadripper Pro" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">Threadripper PRO</h3>
+            <p class="text-gray-400 mb-2 text-sm">Workstation-class CPUs with maximum cores, memory, and I/O.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EPYC Container -->
+      <div>
+        <h2 class="text-2xl font-semibold text-red-400 mb-4">EPYC</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div onclick="openModal('epyc')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/EPYC.jpg" alt="EPYC" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">EPYC</h3>
+            <p class="text-gray-400 mb-2 text-sm">Server processors for data centers and enterprise workloads.</p>
+          </div>
+          <div onclick="openModal('epycgenoa')" class="bg-gray-900 rounded-xl p-4 flex flex-col items-center cursor-pointer group transition hover:shadow-2xl">
+            <img src="assets/processors/EPYC-Genoa.jpg" alt="EPYC Genoa" class="w-24 h-24 object-cover rounded-lg mb-2 transform transition group-hover:scale-110">
+            <h3 class="font-semibold text-lg mb-1">EPYC Genoa</h3>
+            <p class="text-gray-400 mb-2 text-sm">Latest generation EPYC CPUs with advanced performance and efficiency.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="text-red-400 underline mt-8 inline-block">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="modal-bg" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center">
+    <!-- Ryzen 5000 Modal -->
+    <div id="modal-ryzen5000" class="modal-content hidden bg-gray-900 rounded-xl p-4 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Ryzen 5000 Series</h2>
+      <img src="ryzen-5000.jpg" alt="Ryzen 5000 Series" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Zen 3 architecture for powerful gaming and productivity. Up to 16 cores and 32 threads for desktop performance.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Cooler</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 5950X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">16</td><td class="px-2 py-2">32</td><td class="px-2 py-2">Up to 4.9 GHz</td><td class="px-2 py-2">3.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 5900XT</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">16</td><td class="px-2 py-2">32</td><td class="px-2 py-2">Up to 4.8 GHz</td><td class="px-2 py-2">3.3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 5900X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">12</td><td class="px-2 py-2">24</td><td class="px-2 py-2">Up to 4.8 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5800X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.5 GHz</td><td class="px-2 py-2">3.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5800XT</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.8 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">AMD Wraith Prism</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5800X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.7 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5700X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.1 GHz</td><td class="px-2 py-2">3.0 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5700X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5700G</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600G</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.9 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.5 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600GT</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600T</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.5 GHz</td><td class="px-2 py-2">3.5 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5500</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.2 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5500GT</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4 GHz</td><td class="px-2 py-2">3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5500X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4 GHz</td><td class="px-2 py-2">3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 3 5305GE</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">4</td><td class="px-2 py-2">8</td><td class="px-2 py-2">Up to 4.2 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">-</td><td class="px-2 py-2">35W</td></tr>
+            <tr><td class="px-2 py-2">Ryzen 3 5305G</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">4</td><td class="px-2 py-2">8</td><td class="px-2 py-2">Up to 4.2 GHz</td><td class="px-2 py-2">4 GHz</td><td class="px-2 py-2">-</td><td class="px-2 py-2">65W</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Some models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- Ryzen 7000 Modal -->
+    <div id="modal-ryzen7000" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Ryzen 7000 Series</h2>
+      <img src="ryzen-7000.jpg" alt="Ryzen 7000 Series" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Zen 4 architecture, PCIe 5.0, DDR5 support, AM5 platform. Up to 16 cores and 32 threads for next-gen desktops.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics Model</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Cooler</th>
+              <th class="px-2 py-2">Graphics Core Count</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 7950X3D</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">16</td><td class="px-2 py-2">32</td><td class="px-2 py-2">Up to 5.7 GHz</td><td class="px-2 py-2">4.2 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">120W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 7950X</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">16</td><td class="px-2 py-2">32</td><td class="px-2 py-2">Up to 5.7 GHz</td><td class="px-2 py-2">4.5 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">170W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 7900X3D</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">12</td><td class="px-2 py-2">24</td><td class="px-2 py-2">Up to 5.6 GHz</td><td class="px-2 py-2">4.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">120W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 7900X</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">12</td><td class="px-2 py-2">24</td><td class="px-2 py-2">Up to 5.6 GHz</td><td class="px-2 py-2">4.7 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">170W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 7900</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">12</td><td class="px-2 py-2">24</td><td class="px-2 py-2">Up to 5.4 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">AMD Wraith Prism</td><td class="px-2 py-2">2</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 7800X3D</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 5 GHz</td><td class="px-2 py-2">4.2 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">120W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 7700X</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 5.4 GHz</td><td class="px-2 py-2">4.5 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 7700</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 5.3 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">AMD Wraith Prism</td><td class="px-2 py-2">2</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 7600X</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 5.3 GHz</td><td class="px-2 py-2">4.7 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">2</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 7600</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 5.1 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">2</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 7500F</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 5 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">-</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 7400F</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.7 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">-</td><td class="px-2 py-2">65W</td></tr>
+            <tr><td class="px-2 py-2">Ryzen 5 7400</td><td class="px-2 py-2">AMD Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.3 GHz</td><td class="px-2 py-2">3.3 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">2</td><td class="px-2 py-2">65W</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Some models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- Ryzen 8000 Modal -->
+    <div id="modal-ryzen8000" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Ryzen 8000 Series</h2>
+      <img src="ryzen-8000.jpg" alt="Ryzen 8000 Series" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Next-gen performance for advanced gaming and creation. Enhanced AI and graphics capabilities.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics Model</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Graphics Core Count</th>
+              <th class="px-2 py-2">AMD Ryzen™ AI</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 7 8700G</td>
+              <td class="px-2 py-2">AMD Radeon™ 780M</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">Up to 5.1 GHz</td>
+              <td class="px-2 py-2">4.2 GHz</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Available</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 7 8700F</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">Up to 5 GHz</td>
+              <td class="px-2 py-2">4.1 GHz</td>
+              <td class="px-2 py-2">-</td>
+              <td class="px-2 py-2">Available</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 5 8600G</td>
+              <td class="px-2 py-2">AMD Radeon™ 760M</td>
+              <td class="px-2 py-2">6</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Up to 5 GHz</td>
+              <td class="px-2 py-2">4.3 GHz</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">Available</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 5 8500G</td>
+              <td class="px-2 py-2">AMD Radeon™ 740M</td>
+              <td class="px-2 py-2">6</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Up to 5 GHz</td>
+              <td class="px-2 py-2">3.5 GHz</td>
+              <td class="px-2 py-2">4</td>
+              <td class="px-2 py-2">Not Available</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 5 8400F</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">6</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Up to 4.7 GHz</td>
+              <td class="px-2 py-2">4.2 GHz</td>
+              <td class="px-2 py-2">-</td>
+              <td class="px-2 py-2">Not Available</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr>
+              <td class="px-2 py-2">Ryzen 3 8300G</td>
+              <td class="px-2 py-2">AMD Radeon™ 740M</td>
+              <td class="px-2 py-2">4</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">Up to 4.9 GHz</td>
+              <td class="px-2 py-2">3.4 GHz</td>
+              <td class="px-2 py-2">4</td>
+              <td class="px-2 py-2">Not Available</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Some models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- Ryzen 9000 Modal -->
+    <div id="modal-ryzen9000" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Ryzen 9000 Series</h2>
+      <img src="AMD Ryzen 9000 Series.jpg" alt="Ryzen 9000 Series" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Latest flagship desktop CPUs for ultimate performance. Cutting-edge technology for enthusiasts and creators.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics Model</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Cooler</th>
+              <th class="px-2 py-2">Graphics Core Count</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 9 9950X3D</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">32</td>
+              <td class="px-2 py-2">Up to 5.7 GHz</td>
+              <td class="px-2 py-2">4.3 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">170W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 9 9950X</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">32</td>
+              <td class="px-2 py-2">Up to 5.7 GHz</td>
+              <td class="px-2 py-2">4.3 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">170W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 9 9900X3D</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">24</td>
+              <td class="px-2 py-2">Up to 5.5 GHz</td>
+              <td class="px-2 py-2">4.4 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">120W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 9 9900X</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">24</td>
+              <td class="px-2 py-2">Up to 5.6 GHz</td>
+              <td class="px-2 py-2">4.4 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">120W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 7 9800X3D</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">Up to 5.2 GHz</td>
+              <td class="px-2 py-2">4.7 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">120W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 7 9700X</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">Up to 5.5 GHz</td>
+              <td class="px-2 py-2">3.8 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 7 9700F</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">8</td>
+              <td class="px-2 py-2">16</td>
+              <td class="px-2 py-2">Up to 5.5 GHz</td>
+              <td class="px-2 py-2">3.8 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">-</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 5 9600X</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">6</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">3.9 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Ryzen 5 9600</td>
+              <td class="px-2 py-2">AMD Radeon™ Graphics</td>
+              <td class="px-2 py-2">6</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Up to 5.2 GHz</td>
+              <td class="px-2 py-2">3.8 GHz</td>
+              <td class="px-2 py-2">AMD Wraith Stealth</td>
+              <td class="px-2 py-2">2</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+            <tr>
+              <td class="px-2 py-2">Ryzen 5 9500F</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">6</td>
+              <td class="px-2 py-2">12</td>
+              <td class="px-2 py-2">Up to 5 GHz</td>
+              <td class="px-2 py-2">3.8 GHz</td>
+              <td class="px-2 py-2">AMD Wraith Stealth</td>
+              <td class="px-2 py-2">-</td>
+              <td class="px-2 py-2">65W</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Some models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- Threadripper Modal -->
+    <div id="modal-threadripper" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-4xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Ryzen Threadripper</h2>
+      <img src="AMD Threadripper.jpg" alt="Threadripper" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Extreme multi-core CPUs for professionals, creators, and workstations.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics Model</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Cooler</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Threadripper 9980X</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">64</td>
+              <td class="px-2 py-2">128</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">3.2 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Threadripper 9970X</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">32</td>
+              <td class="px-2 py-2">64</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">4 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+            <tr>
+              <td class="px-2 py-2">Threadripper 9960X</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">24</td>
+              <td class="px-2 py-2">48</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">4.2 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*All models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- Threadripper PRO Modal -->
+    <div id="modal-threadripperpro" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Threadripper PRO</h2>
+      <img src="AMD Threadripper Pro.jpg" alt="Threadripper Pro" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Workstation-class CPUs with maximum cores, memory, and I/O. Designed for professionals and creators.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics Model</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Cooler</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Threadripper PRO 9995WX</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">96</td>
+              <td class="px-2 py-2">192</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">2.5 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Threadripper PRO 9985WX</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">64</td>
+              <td class="px-2 py-2">128</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">3.2 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Threadripper PRO 9975WX</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">32</td>
+              <td class="px-2 py-2">64</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">4 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+            <tr class="border-b border-gray-700">
+              <td class="px-2 py-2">Threadripper PRO 9965WX</td>
+              <td class="px-2 py-2">Discrete Graphics Card Required</td>
+              <td class="px-2 py-2">24</td>
+              <td class="px-2 py-2">48</td>
+              <td class="px-2 py-2">Up to 5.4 GHz</td>
+              <td class="px-2 py-2">4.2 GHz</td>
+              <td class="px-2 py-2">Not Included</td>
+              <td class="px-2 py-2">350W</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*All models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- EPYC Modal -->
+    <div id="modal-epyc" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">EPYC</h2>
+      <img src="EPYC.jpg" alt="EPYC" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Server processors for data centers and enterprise workloads.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">L3 Cache</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9965</td><td class="px-2 py-2">192</td><td class="px-2 py-2">384</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.25 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">500W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9845</td><td class="px-2 py-2">160</td><td class="px-2 py-2">320</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.1 GHz</td><td class="px-2 py-2">320 MB</td><td class="px-2 py-2">390W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9825</td><td class="px-2 py-2">144</td><td class="px-2 py-2">288</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.2 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">390W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9755</td><td class="px-2 py-2">128</td><td class="px-2 py-2">256</td><td class="px-2 py-2">Up to 4.1 GHz</td><td class="px-2 py-2">2.7 GHz</td><td class="px-2 py-2">512 MB</td><td class="px-2 py-2">500W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9745</td><td class="px-2 py-2">128</td><td class="px-2 py-2">256</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.4 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">400W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9655P</td><td class="px-2 py-2">96</td><td class="px-2 py-2">192</td><td class="px-2 py-2">Up to 4.5 GHz</td><td class="px-2 py-2">2.6 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">400W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9655</td><td class="px-2 py-2">96</td><td class="px-2 py-2">192</td><td class="px-2 py-2">Up to 4.5 GHz</td><td class="px-2 py-2">2.6 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">400W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9645</td><td class="px-2 py-2">96</td><td class="px-2 py-2">192</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.3 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">320W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9575F</td><td class="px-2 py-2">64</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 5 GHz</td><td class="px-2 py-2">3.3 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">400W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9565</td><td class="px-2 py-2">72</td><td class="px-2 py-2">144</td><td class="px-2 py-2">Up to 4.3 GHz</td><td class="px-2 py-2">3.15 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">400W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9555P</td><td class="px-2 py-2">64</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.2 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr>
+              <td class="px-2 py-2">EPYC 9555</td><td class="px-2 py-2">64</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.2 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Check AMD's official site for the latest details.</p>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="modal-bg" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center">
+    <!-- Ryzen 5000 Modal -->
+    <div id="modal-ryzen5000" class="modal-content hidden bg-gray-900 rounded-xl p-4 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">Ryzen 5000 Series</h2>
+      <img src="ryzen-5000.jpg" alt="Ryzen 5000 Series" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Zen 3 architecture for powerful gaming and productivity. Up to 16 cores and 32 threads for desktop performance.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Graphics</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">Cooler</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 5950X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">16</td><td class="px-2 py-2">32</td><td class="px-2 py-2">Up to 4.9 GHz</td><td class="px-2 py-2">3.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 5900XT</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">16</td><td class="px-2 py-2">32</td><td class="px-2 py-2">Up to 4.8 GHz</td><td class="px-2 py-2">3.3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 9 5900X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">12</td><td class="px-2 py-2">24</td><td class="px-2 py-2">Up to 4.8 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5800X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.5 GHz</td><td class="px-2 py-2">3.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5800XT</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.8 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">AMD Wraith Prism</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5800X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.7 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5700X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.1 GHz</td><td class="px-2 py-2">3.0 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5700X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.4 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 7 5700G</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">8</td><td class="px-2 py-2">16</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.8 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600X</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.7 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600G</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.9 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.5 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600GT</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.6 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600T</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.5 GHz</td><td class="px-2 py-2">3.5 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5600X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.4 GHz</td><td class="px-2 py-2">3.3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5500</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4.2 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">AMD Wraith Stealth</td><td class="px-2 py-2">65W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5500GT</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4 GHz</td><td class="px-2 py-2">3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 5 5500X3D</td><td class="px-2 py-2">Discrete Graphics Card Required</td><td class="px-2 py-2">6</td><td class="px-2 py-2">12</td><td class="px-2 py-2">Up to 4 GHz</td><td class="px-2 py-2">3 GHz</td><td class="px-2 py-2">Not Included</td><td class="px-2 py-2">105W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">Ryzen 3 5305GE</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">4</td><td class="px-2 py-2">8</td><td class="px-2 py-2">Up to 4.2 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">-</td><td class="px-2 py-2">35W</td></tr>
+            <tr><td class="px-2 py-2">Ryzen 3 5305G</td><td class="px-2 py-2">Radeon™ Graphics</td><td class="px-2 py-2">4</td><td class="px-2 py-2">8</td><td class="px-2 py-2">Up to 4.2 GHz</td><td class="px-2 py-2">4 GHz</td><td class="px-2 py-2">-</td><td class="px-2 py-2">65W</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Some models require discrete graphics. Check AMD's official site for the latest details.</p>
+    </div>
+    <!-- EPYC Genoa Modal -->
+    <div id="modal-epycgenoa" class="modal-content hidden bg-gray-900 rounded-xl p-8 max-w-5xl w-full text-left relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-2xl font-bold text-red-400 mb-2">EPYC Genoa Series</h2>
+      <img src="EPYC Genoa.jpg" alt="EPYC Genoa" class="w-32 h-32 object-cover rounded-lg mb-4 mx-auto">
+      <p class="mb-4">Latest generation EPYC CPUs with advanced performance and efficiency for data centers and enterprise workloads.</p>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-xs md:text-sm text-left text-gray-300 mb-4">
+          <thead class="bg-gray-800 text-gray-100">
+            <tr>
+              <th class="px-2 py-2">Name</th>
+              <th class="px-2 py-2">Cores</th>
+              <th class="px-2 py-2">Threads</th>
+              <th class="px-2 py-2">Boost Clock</th>
+              <th class="px-2 py-2">Base Clock</th>
+              <th class="px-2 py-2">L3 Cache</th>
+              <th class="px-2 py-2">TDP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9754S</td><td class="px-2 py-2">128</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 3.1 GHz</td><td class="px-2 py-2">2.25 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9754</td><td class="px-2 py-2">128</td><td class="px-2 py-2">256</td><td class="px-2 py-2">Up to 3.1 GHz</td><td class="px-2 py-2">2.25 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9734</td><td class="px-2 py-2">112</td><td class="px-2 py-2">224</td><td class="px-2 py-2">Up to 3 GHz</td><td class="px-2 py-2">2.2 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">340W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9684X</td><td class="px-2 py-2">96</td><td class="px-2 py-2">192</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.55 GHz</td><td class="px-2 py-2">1152 MB</td><td class="px-2 py-2">400W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9654P</td><td class="px-2 py-2">96</td><td class="px-2 py-2">192</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.4 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9654</td><td class="px-2 py-2">96</td><td class="px-2 py-2">192</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.4 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9634</td><td class="px-2 py-2">84</td><td class="px-2 py-2">168</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.25 GHz</td><td class="px-2 py-2">384 MB</td><td class="px-2 py-2">290W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9554P</td><td class="px-2 py-2">64</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 3.75 GHz</td><td class="px-2 py-2">3.1 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9554</td><td class="px-2 py-2">64</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 3.75 GHz</td><td class="px-2 py-2">3.1 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td></tr>
+            <tr class="border-b border-gray-700"><td class="px-2 py-2">EPYC 9534</td><td class="px-2 py-2">64</td><td class="px-2 py-2">128</td><td class="px-2 py-2">Up to 3.7 GHz</td><td class="px-2 py-2">2.45 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">280W</td></tr>
+            <tr>
+              <td class="px-2 py-2">EPYC 9474F</td><td class="px-2 py-2">48</td><td class="px-2 py-2">96</td><td class="px-2 py-2">Up to 4.1 GHz</td><td class="px-2 py-2">3.6 GHz</td><td class="px-2 py-2">256 MB</td><td class="px-2 py-2">360W</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400">*Check AMD's official site for the latest details.</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-bg').classList.remove('hidden');
+      // Hide all modals first
+      document.querySelectorAll('.modal-content').forEach(m => m.classList.add('hidden'));
+      // Show the selected modal
+      document.getElementById('modal-' + id).classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal-bg').classList.add('hidden');
+      document.querySelectorAll('.modal-content').forEach(m => m.classList.add('hidden'));
+      document.body.classList.remove('overflow-hidden');
+    }
+    // Close modal when clicking outside modal content
+    document.getElementById('modal-bg').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    // Optional: ESC key closes modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe - AMD UIX</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-white font-sans">
+  <!-- Background Video -->
+  <div class="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-50">
+      <source src="background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex flex-col items-center pb-12">
+  <div class="bg-black/70 p-8 rounded-2xl text-center max-w-lg mx-auto">
+    <h1 class="text-3xl font-bold text-red-500 mb-4">Subscribe to AMD Updates</h1>
+    <p class="mb-6">Get the latest news, product launches, and exclusive offers from AMD directly to your inbox.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg mb-4 w-full text-black" required>
+      <button type="submit" class="px-6 py-2 bg-red-600 rounded-lg hover:bg-red-700 text-white font-bold w-full">Subscribe</button>
+      <a href="index.html" class="text-red-400 underline mt-8 inline-block">Back to Home</a>
+    </form>
+  </div>
+</body>
+</html>
