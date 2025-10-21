@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMD Accelerators - AMD UIX</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex flex-col items-center pb-12">
+  <!-- Background Video -->
+  <div class="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-50">
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="flex justify-center items-start min-h-screen w-full">
+    <div class="bg-black/70 p-8 rounded-xl w-full max-w-5xl mt-4">
+      <h2 class="text-4xl font-bold text-red-500 mb-2 text-center">AMD Accelerators</h2>
+      <p class="text-lg text-center mb-8">Explore AMD's high-performance accelerators for AI and HPC workloads.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+        <!-- MI300 Series Card -->
+        <div class="bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-transform cursor-pointer open-series-modal" data-modal="modalMI300">
+          <img src="assets/MI300-Series.jpg" alt="MI300 Series" class="w-48 h-36 object-contain mb-4">
+          <h3 class="text-xl font-bold mb-2">Instinct MI300 Series</h3>
+          <p class="text-gray-300 text-center">Advanced CDNA3 architecture for AI and supercomputing.</p>
+        </div>
+
+        <!-- MI200 Series Card -->
+        <div class="bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-transform cursor-pointer open-series-modal" data-modal="modalMI200">
+          <img src="assets/MI200-Series.jpg" alt="MI200 Series" class="w-48 h-36 object-contain mb-4">
+          <h3 class="text-xl font-bold mb-2">Instinct MI200 Series</h3>
+          <p class="text-gray-300 text-center">CDNA2-based accelerators for enterprise and research workloads.</p>
+        </div>
+
+        <!-- Legacy Models Card -->
+        <div class="bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-transform cursor-pointer open-series-modal" data-modal="modalLegacy">
+          <img src="assets/legacy.jpg" alt="Legacy Models" class="w-48 h-36 object-contain mb-4">
+          <h3 class="text-xl font-bold mb-2">Legacy GCN Models</h3>
+          <p class="text-gray-300 text-center">Earlier generation accelerators for specialized use cases.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-6">
+        <a href="index.html" class="text-red-500 hover:underline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- MI300 Modal -->
+  <div id="modalMI300" class="series-modal fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-900 rounded-2xl p-8 max-w-5xl w-full relative overflow-x-auto max-h-[90vh] overflow-y-auto">
+      <button class="close-series-modal absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
+      <h2 class="text-2xl font-bold text-red-500 mb-4 text-center">Instinct MI300 Series</h2>
+      <div class="overflow-x-auto">
+        <table class="table-fixed w-full text-sm text-gray-300">
+          <thead class="text-md uppercase text-white border-b border-gray-700">
+            <tr>
+              <th class="py-2 px-4 w-1/4 text-left">Model</th>
+              <th class="py-2 px-4 w-1/4 text-center">Architecture</th>
+              <th class="py-2 px-4 w-1/4 text-center">VRAM</th>
+              <th class="py-2 px-4 w-1/4 text-center">Compute Units</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="py-2 px-4">MI355X</td><td class="py-2 px-4 text-center">CDNA4</td><td class="py-2 px-4 text-center">288 GB</td><td class="py-2 px-4 text-center">256</td></tr>
+            <tr><td class="py-2 px-4">MI350X</td><td class="py-2 px-4 text-center">CDNA4</td><td class="py-2 px-4 text-center">288 GB</td><td class="py-2 px-4 text-center">256</td></tr>
+            <tr><td class="py-2 px-4">MI325X</td><td class="py-2 px-4 text-center">CDNA3</td><td class="py-2 px-4 text-center">256 GB</td><td class="py-2 px-4 text-center">304</td></tr>
+            <tr><td class="py-2 px-4">MI300X</td><td class="py-2 px-4 text-center">CDNA3</td><td class="py-2 px-4 text-center">192 GB</td><td class="py-2 px-4 text-center">304</td></tr>
+            <tr><td class="py-2 px-4">MI300A</td><td class="py-2 px-4 text-center">CDNA3</td><td class="py-2 px-4 text-center">128 GB</td><td class="py-2 px-4 text-center">228</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MI200 Modal -->
+  <div id="modalMI200" class="series-modal fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-900 rounded-2xl p-8 max-w-5xl w-full relative overflow-x-auto max-h-[90vh] overflow-y-auto">
+      <button class="close-series-modal absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
+      <h2 class="text-2xl font-bold text-red-500 mb-4 text-center">Instinct MI200 Series</h2>
+      <div class="overflow-x-auto">
+        <table class="table-fixed w-full text-sm text-gray-300">
+          <thead class="text-md uppercase text-white border-b border-gray-700">
+            <tr>
+              <th class="py-2 px-4 w-1/4 text-left">Model</th>
+              <th class="py-2 px-4 w-1/4 text-center">Architecture</th>
+              <th class="py-2 px-4 w-1/4 text-center">VRAM</th>
+              <th class="py-2 px-4 w-1/4 text-center">Compute Units</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="py-2 px-4">MI250X</td><td class="py-2 px-4 text-center">CDNA2</td><td class="py-2 px-4 text-center">128 GB</td><td class="py-2 px-4 text-center">220</td></tr>
+            <tr><td class="py-2 px-4">MI250</td><td class="py-2 px-4 text-center">CDNA2</td><td class="py-2 px-4 text-center">128 GB</td><td class="py-2 px-4 text-center">208</td></tr>
+            <tr><td class="py-2 px-4">MI210</td><td class="py-2 px-4 text-center">CDNA2</td><td class="py-2 px-4 text-center">64 GB</td><td class="py-2 px-4 text-center">104</td></tr>
+            <tr><td class="py-2 px-4">MI100</td><td class="py-2 px-4 text-center">CDNA</td><td class="py-2 px-4 text-center">32 GB</td><td class="py-2 px-4 text-center">120</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legacy Modal -->
+  <div id="modalLegacy" class="series-modal fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-900 rounded-2xl p-8 max-w-5xl w-full relative overflow-x-auto max-h-[90vh] overflow-y-auto">
+      <button class="close-series-modal absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
+      <h2 class="text-2xl font-bold text-red-500 mb-4 text-center">Legacy GCN Models</h2>
+      <div class="overflow-x-auto">
+        <table class="table-fixed w-full text-sm text-gray-300">
+          <thead class="text-md uppercase text-white border-b border-gray-700">
+            <tr>
+              <th class="py-2 px-4 w-1/4 text-left">Model</th>
+              <th class="py-2 px-4 w-1/4 text-center">Architecture</th>
+              <th class="py-2 px-4 w-1/4 text-center">VRAM</th>
+              <th class="py-2 px-4 w-1/4 text-center">Compute Units</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="py-2 px-4">MI60</td><td class="py-2 px-4 text-center">GCN5.1</td><td class="py-2 px-4 text-center">32 GB</td><td class="py-2 px-4 text-center">64</td></tr>
+            <tr><td class="py-2 px-4">MI50</td><td class="py-2 px-4 text-center">GCN5.1</td><td class="py-2 px-4 text-center">32/16 GB</td><td class="py-2 px-4 text-center">60</td></tr>
+            <tr><td class="py-2 px-4">MI25</td><td class="py-2 px-4 text-center">GCN5.0</td><td class="py-2 px-4 text-center">16 GB</td><td class="py-2 px-4 text-center">64</td></tr>
+            <tr><td class="py-2 px-4">MI8</td><td class="py-2 px-4 text-center">GCN3.0</td><td class="py-2 px-4 text-center">4 GB</td><td class="py-2 px-4 text-center">64</td></tr>
+            <tr><td class="py-2 px-4">MI6</td><td class="py-2 px-4 text-center">GCN4.0</td><td class="py-2 px-4 text-center">16 GB</td><td class="py-2 px-4 text-center">36</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Script -->
+  <script>
+    // Open modal on card/image click
+    document.querySelectorAll('.open-series-modal').forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.getElementById(this.dataset.modal).classList.remove('hidden');
+      });
+    });
+    // Close modal (close button)
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('close-series-modal')) {
+        e.target.closest('.series-modal').classList.add('hidden');
+      }
+    });
+    // Close modal when clicking outside modal content
+    document.querySelectorAll('.series-modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

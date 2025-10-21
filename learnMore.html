@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn More - AMD UIX</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex flex-col items-center pb-12">
+
+    <div class="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-50">
+      <source src="montage.mp4" type="video/mp4"></a>
+    </video>
+  </div>
+
+  <!-- Background Video -->
+  <div class="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-50">
+      <source src="assets/background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Main Content -->
+  <div class="bg-black/70 p-8 rounded-2xl max-w-3xl w-full mt-16 shadow-lg">
+    <h1 class="text-4xl font-bold text-red-500 mb-4 text-center">Learn More About AMD</h1>
+    <p class="text-lg text-gray-200 mb-8 text-center">
+      Discover how AMD's cutting-edge processors and graphics solutions accelerate performance for gaming, AI, and professional workloads.
+    </p>
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-red-400">Why Choose AMD?</h2>
+        <ul class="list-disc list-inside text-gray-300 ml-4">
+          <li>Innovative architectures for CPUs and GPUs</li>
+          <li>Exceptional performance and efficiency</li>
+          <li>Advanced technologies for AI, gaming, and creation</li>
+          <li>Broad compatibility and future-ready platforms</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-red-400">Featured Technologies</h2>
+        <ul class="list-disc list-inside text-gray-300 ml-4">
+          <li>AMD Ryzen™ and EPYC™ processors</li>
+          <li>AMD Radeon™ RX graphics cards</li>
+          <li>Smart Access Memory, Infinity Cache, and PCIe® 5.0</li>
+          <li>AI acceleration and advanced security features</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-red-400">Get Started</h2>
+        <p class="text-gray-300 mb-4">
+          Explore our product lineup or visit the official AMD website for more details and support.
+        </p>
+        <div class="flex gap-4">
+          <a href="index.html" class="px-6 py-2 bg-red-600 rounded-lg hover:bg-red-700 text-white font-bold">Back to Home</a>
+          <a href="https://www.amd.com/en/products" target="_blank" rel="noopener" class="px-6 py-2 border border-red-600 rounded-lg hover:bg-red-600 text-white font-bold">AMD Official Site</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

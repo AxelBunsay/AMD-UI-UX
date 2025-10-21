@@ -13,71 +13,41 @@
   <div class="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
     <video autoplay muted loop playsinline class="w-full h-full object-cover pointer-events-none opacity-50">
       <source src="background.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
   </div>
 
-  <!-- Main Container (like processors page) -->
-  <div class="bg-black/70 p-10 rounded-2xl max-w-5xl w-full mx-auto mt-12 shadow-lg">
-    <h1 class="text-3xl font-bold text-red-500 mb-2 text-center">AMD Graphics Cards</h1>
-    <p class="text-center text-lg text-gray-200 mb-10">Explore AMD's latest dedicated graphics cards by series.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- RX 6000 Series Card -->
-      <div class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl cursor-pointer relative">
-        <img src="assets/graphics/AMD-6000-series.jpg" alt="RX 6000 Series" class="w-52 h-40 object-contain mb-4">
-        <h2 class="text-xl font-bold mb-2">RX 6000 Series</h2>
-        <p class="text-gray-300 text-center mb-4">Powerful RDNA 2 graphics for gaming and creation.</p>
-        <button class="open-series-modal px-6 py-2 bg-red-600 rounded-lg hover:bg-red-700 text-white font-bold" data-modal="modal6000">
-          View Details
-        </button>
+  <div class="flex justify-center items-start min-h-screen w-full">
+    <div class="bg-black/70 p-8 rounded-xl w-full max-w-5xl mt-4">
+      <h2 class="text-4xl font-bold text-red-500 mb-2 text-center">AMD Graphics Card</h2>
+      <p class="text-lg text-center mb-8">Explore AMD's latest dedicated graphics cards by series.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+        <!-- RX 6000 Series Card -->
+        <div class="bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-transform cursor-pointer">
+          <img src="assets/AMD-6000-series.jpg" alt="RX 6000 Series" class="w-48 h-36 object-contain mb-4 open-series-modal" data-modal="modal6000" style="cursor:pointer;">
+          <h3 class="text-xl font-bold mb-2">AMD RX 6000 Series</h3>
+          <p class="text-gray-300 text-center">Powerful RDNA 2 graphics for gaming and creation.</p>
+        </div>
+        <!-- RX 7000 Series Card -->
+        <div class="bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-transform cursor-pointer">
+          <img src="assets/AMD-7000-series.jpg" alt="RX 7000 Series" class="w-48 h-36 object-contain mb-4 open-series-modal" data-modal="modal7000" style="cursor:pointer;">
+          <h3 class="text-xl font-bold mb-2">AMD RX 7000 Series</h3>
+          <p class="text-gray-300 text-center">Next-gen RDNA 3 graphics for ultimate performance.</p>
+        </div>
+        <!-- RX 9000 Series Card -->
+        <div class="bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-transform cursor-pointer">
+          <img src="assets/AMD-9000-series.jpg" alt="RX 9000 Series" class="w-48 h-36 object-contain mb-4 open-series-modal" data-modal="modal9000" style="cursor:pointer;">
+          <h3 class="text-xl font-bold mb-2">AMD RX 9000 Series</h3>
+          <p class="text-gray-300 text-center">Flagship graphics for enthusiasts and professionals.</p>
+        </div>
       </div>
-      <!-- RX 7000 Series Card -->
-      <div class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl cursor-pointer relative">
-        <img src="assets/graphics/AMD-7000-series.jpg" alt="RX 7000 Series" class="w-40 h-32 object-contain mb-4">
-        <h2 class="text-xl font-bold mb-2">RX 7000 Series</h2>
-        <p class="text-gray-300 text-center mb-4">Next-gen RDNA 3 graphics for ultimate performance.</p>
-        <button class="open-series-modal px-6 py-2 bg-red-600 rounded-lg hover:bg-red-700 text-white font-bold" data-modal="modal7000">
-          View Details
-        </button>
-      </div>
-      <!-- RX 9000 Series Card -->
-      <div class="group bg-gray-900 rounded-2xl p-6 flex flex-col items-center shadow-lg transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl cursor-pointer relative">
-        <img src="assets/graphics/AMD-9000-series.jpg" alt="RX 9000 Series" class="w-40 h-32 object-contain mb-4">
-        <h2 class="text-xl font-bold mb-2">RX 9000 Series</h2>
-        <p class="text-gray-300 text-center mb-4">Flagship graphics for enthusiasts and professionals.</p>
-        <button class="open-series-modal px-6 py-2 bg-red-600 rounded-lg hover:bg-red-700 text-white font-bold" data-modal="modal9000">
-          View Details
-        </button>
+       
+       <div class="flex justify-center mt-6">
+        <a href="index.html" class="text-red-500 hover:underline">Back to Home</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal Script -->
-  <script>
-    // Open modal
-    document.querySelectorAll('.open-series-modal').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        document.getElementById(this.dataset.modal).classList.remove('hidden');
-      });
-    });
-    // Close modal (fix: use event delegation for dynamically rendered buttons)
-    document.addEventListener('click', function(e) {
-      if (e.target.classList.contains('close-series-modal')) {
-        e.target.closest('.series-modal').classList.add('hidden');
-      }
-    });
-    // Close modal when clicking outside modal content
-    document.querySelectorAll('.series-modal').forEach(modal => {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          modal.classList.add('hidden');
-        }
-      });
-    });
-  </script>
-
-  <!-- Place all modals here, outside the grid container -->
+  <!-- Modals (outside the grid container) -->
   <!-- RX 6000 Modal -->
   <div id="modal6000" class="series-modal fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
     <div class="bg-gray-900 rounded-2xl p-8 max-w-4xl w-full relative overflow-x-auto max-h-[90vh] overflow-y-auto">
@@ -96,20 +66,118 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6950 XT</td><td class="py-2 px-4">80</td><td class="py-2 px-4">80</td><td class="py-2 px-4">2100 MHz</td><td class="py-2 px-4">128 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6900 XT</td><td class="py-2 px-4">80</td><td class="py-2 px-4">80</td><td class="py-2 px-4">2015 MHz</td><td class="py-2 px-4">128 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6800 XT Midnight Black</td><td class="py-2 px-4">72</td><td class="py-2 px-4">72</td><td class="py-2 px-4">2015 MHz</td><td class="py-2 px-4">128 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6800 XT</td><td class="py-2 px-4">72</td><td class="py-2 px-4">72</td><td class="py-2 px-4">2015 MHz</td><td class="py-2 px-4">128 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6800</td><td class="py-2 px-4">60</td><td class="py-2 px-4">60</td><td class="py-2 px-4">1815 MHz</td><td class="py-2 px-4">128 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6750 XT</td><td class="py-2 px-4">40</td><td class="py-2 px-4">40</td><td class="py-2 px-4">2495 MHz</td><td class="py-2 px-4">96 MB</td><td class="py-2 px-4">12 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6700 XT</td><td class="py-2 px-4">40</td><td class="py-2 px-4">40</td><td class="py-2 px-4">2424 MHz</td><td class="py-2 px-4">96 MB</td><td class="py-2 px-4">12 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6700</td><td class="py-2 px-4">36</td><td class="py-2 px-4">36</td><td class="py-2 px-4">2174 MHz</td><td class="py-2 px-4">80 MB</td><td class="py-2 px-4">10 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6650 XT</td><td class="py-2 px-4">32</td><td class="py-2 px-4">32</td><td class="py-2 px-4">2410 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">8 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6600 XT</td><td class="py-2 px-4">32</td><td class="py-2 px-4">32</td><td class="py-2 px-4">2359 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">8 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6600</td><td class="py-2 px-4">28</td><td class="py-2 px-4">28</td><td class="py-2 px-4">2044 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">8 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6500 XT</td><td class="py-2 px-4">16</td><td class="py-2 px-4">16</td><td class="py-2 px-4">2650 MHz</td><td class="py-2 px-4">16 MB</td><td class="py-2 px-4">8 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6500 XT (4GB)</td><td class="py-2 px-4">16</td><td class="py-2 px-4">16</td><td class="py-2 px-4">2610 MHz</td><td class="py-2 px-4">16 MB</td><td class="py-2 px-4">4 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6400</td><td class="py-2 px-4">12</td><td class="py-2 px-4">12</td><td class="py-2 px-4">2039 MHz</td><td class="py-2 px-4">16 MB</td><td class="py-2 px-4">4 GB</td></tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6950 XT</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">2100 MHz</td>
+              <td class="py-2 px-4">128 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6900 XT</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">2015 MHz</td>
+              <td class="py-2 px-4">128 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6800 XT Midnight Black</td>
+              <td class="py-2 px-4">72</td>
+              <td class="py-2 px-4">72</td>
+              <td class="py-2 px-4">2015 MHz</td>
+              <td class="py-2 px-4">128 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6800 XT</td>
+              <td class="py-2 px-4">72</td>
+              <td class="py-2 px-4">72</td>
+              <td class="py-2 px-4">2015 MHz</td>
+              <td class="py-2 px-4">128 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6800</td>
+              <td class="py-2 px-4">60</td>
+              <td class="py-2 px-4">60</td>
+              <td class="py-2 px-4">1815 MHz</td>
+              <td class="py-2 px-4">128 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6750 XT</td>
+              <td class="py-2 px-4">40</td>
+              <td class="py-2 px-4">40</td>
+              <td class="py-2 px-4">2495 MHz</td>
+              <td class="py-2 px-4">96 MB</td>
+              <td class="py-2 px-4">12 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6700 XT</td>
+              <td class="py-2 px-4">40</td>
+              <td class="py-2 px-4">40</td>
+              <td class="py-2 px-4">2424 MHz</td>
+              <td class="py-2 px-4">96 MB</td>
+              <td class="py-2 px-4">12 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6700</td>
+              <td class="py-2 px-4">36</td>
+              <td class="py-2 px-4">36</td>
+              <td class="py-2 px-4">2174 MHz</td>
+              <td class="py-2 px-4">80 MB</td>
+              <td class="py-2 px-4">10 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6650 XT</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">2410 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">8 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6600 XT</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">2359 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">8 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6600</td>
+              <td class="py-2 px-4">28</td>
+              <td class="py-2 px-4">28</td>
+              <td class="py-2 px-4">2044 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">8 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6500 XT</td>
+              <td class="py-2 px-4">16</td>
+              <td class="py-2 px-4">16</td>
+              <td class="py-2 px-4">2650 MHz</td>
+              <td class="py-2 px-4">16 MB</td>
+              <td class="py-2 px-4">8 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6500 XT (4GB)</td>
+              <td class="py-2 px-4">16</td>
+              <td class="py-2 px-4">16</td>
+              <td class="py-2 px-4">2610 MHz</td>
+              <td class="py-2 px-4">16 MB</td>
+              <td class="py-2 px-4">4 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 6400</td>
+              <td class="py-2 px-4">12</td>
+              <td class="py-2 px-4">12</td>
+              <td class="py-2 px-4">2039 MHz</td>
+              <td class="py-2 px-4">16 MB</td>
+              <td class="py-2 px-4">4 GB</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -134,14 +202,78 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7900 XTX</td><td class="py-2 px-4">96</td><td class="py-2 px-4">96</td><td class="py-2 px-4">192</td><td class="py-2 px-4">2300 MHz</td><td class="py-2 px-4">96 MB</td><td class="py-2 px-4">24 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7900 XT</td><td class="py-2 px-4">84</td><td class="py-2 px-4">84</td><td class="py-2 px-4">168</td><td class="py-2 px-4">2000 MHz</td><td class="py-2 px-4">80 MB</td><td class="py-2 px-4">20 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7900 GRE</td><td class="py-2 px-4">80</td><td class="py-2 px-4">80</td><td class="py-2 px-4">160</td><td class="py-2 px-4">1880 MHz</td><td class="py-2 px-4">64 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7800 XT</td><td class="py-2 px-4">60</td><td class="py-2 px-4">60</td><td class="py-2 px-4">120</td><td class="py-2 px-4">2124 MHz</td><td class="py-2 px-4">64 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7700 XT</td><td class="py-2 px-4">54</td><td class="py-2 px-4">54</td><td class="py-2 px-4">108</td><td class="py-2 px-4">2171 MHz</td><td class="py-2 px-4">48 MB</td><td class="py-2 px-4">12 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7700</td><td class="py-2 px-4">40</td><td class="py-2 px-4">40</td><td class="py-2 px-4">80</td><td class="py-2 px-4">-</td><td class="py-2 px-4">40 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7600 XT</td><td class="py-2 px-4">32</td><td class="py-2 px-4">32</td><td class="py-2 px-4">64</td><td class="py-2 px-4">2470 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7600</td><td class="py-2 px-4">32</td><td class="py-2 px-4">32</td><td class="py-2 px-4">64</td><td class="py-2 px-4">2250 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">8 GB</td></tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7900 XTX</td>
+              <td class="py-2 px-4">96</td>
+              <td class="py-2 px-4">96</td>
+              <td class="py-2 px-4">192</td>
+              <td class="py-2 px-4">2300 MHz</td>
+              <td class="py-2 px-4">96 MB</td>
+              <td class="py-2 px-4">24 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7900 XT</td>
+              <td class="py-2 px-4">84</td>
+              <td class="py-2 px-4">84</td>
+              <td class="py-2 px-4">168</td>
+              <td class="py-2 px-4">2000 MHz</td>
+              <td class="py-2 px-4">80 MB</td>
+              <td class="py-2 px-4">20 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7900 GRE</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">160</td>
+              <td class="py-2 px-4">1880 MHz</td>
+              <td class="py-2 px-4">64 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7800 XT</td>
+              <td class="py-2 px-4">60</td>
+              <td class="py-2 px-4">60</td>
+              <td class="py-2 px-4">120</td>
+              <td class="py-2 px-4">2124 MHz</td>
+              <td class="py-2 px-4">64 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7700 XT</td>
+              <td class="py-2 px-4">54</td>
+              <td class="py-2 px-4">54</td>
+              <td class="py-2 px-4">108</td>
+              <td class="py-2 px-4">2171 MHz</td>
+              <td class="py-2 px-4">48 MB</td>
+              <td class="py-2 px-4">12 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7700</td>
+              <td class="py-2 px-4">40</td>
+              <td class="py-2 px-4">40</td>
+              <td class="py-2 px-4">80</td>
+              <td class="py-2 px-4">-</td>
+              <td class="py-2 px-4">40 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7600 XT</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">64</td>
+              <td class="py-2 px-4">2470 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 7600</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">64</td>
+              <td class="py-2 px-4">2250 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">8 GB</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -166,15 +298,72 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9070 XT</td><td class="py-2 px-4">64</td><td class="py-2 px-4">64</td><td class="py-2 px-4">128</td><td class="py-2 px-4">2400 MHz</td><td class="py-2 px-4">64 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9070</td><td class="py-2 px-4">56</td><td class="py-2 px-4">56</td><td class="py-2 px-4">112</td><td class="py-2 px-4">2070 MHz</td><td class="py-2 px-4">64 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9060 XT</td><td class="py-2 px-4">32</td><td class="py-2 px-4">32</td><td class="py-2 px-4">64</td><td class="py-2 px-4">2530 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">16 GB</td></tr>
-            <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9060 XT (8GB)</td><td class="py-2 px-4">32</td><td class="py-2 px-4">32</td><td class="py-2 px-4">64</td><td class="py-2 px-4">2530 MHz</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">8 GB</td></tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9070 XT</td>
+              <td class="py-2 px-4">64</td>
+              <td class="py-2 px-4">64</td>
+              <td class="py-2 px-4">128</td>
+              <td class="py-2 px-4">2400 MHz</td>
+              <td class="py-2 px-4">64 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9070</td>
+              <td class="py-2 px-4">56</td>
+              <td class="py-2 px-4">56</td>
+              <td class="py-2 px-4">112</td>
+              <td class="py-2 px-4">2070 MHz</td>
+              <td class="py-2 px-4">64 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9060 XT</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">64</td>
+              <td class="py-2 px-4">2530 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">16 GB</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9060 XT (8GB)</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">32</td>
+              <td class="py-2 px-4">64</td>
+              <td class="py-2 px-4">2530 MHz</td>
+              <td class="py-2 px-4">32 MB</td>
+              <td class="py-2 px-4">8 GB</td>
+            </tr>
             <tr><td class="py-2 px-4 text-blue-400 cursor-pointer hover:underline">AMD Radeon™ RX 9060</td><td class="py-2 px-4">28</td><td class="py-2 px-4">28</td><td class="py-2 px-4">56</td><td class="py-2 px-4">-</td><td class="py-2 px-4">32 MB</td><td class="py-2 px-4">8 GB</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
+  <!-- Modal Script -->
+  <script>
+    // Open modal on image click
+    document.querySelectorAll('.open-series-modal').forEach(img => {
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.getElementById(this.dataset.modal).classList.remove('hidden');
+      });
+    });
+    // Close modal (event delegation for all modals)
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('close-series-modal')) {
+        e.target.closest('.series-modal').classList.add('hidden');
+      }
+    });
+    // Close modal when clicking outside modal content
+    document.querySelectorAll('.series-modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

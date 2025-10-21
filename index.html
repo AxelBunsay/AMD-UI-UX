@@ -21,12 +21,12 @@
   <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-gray-800">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
       <!-- Logo -->
-      <h1 class="text-2xl font-bold text-red-500">AMD</h1>
+      <button class="text-2xl font-bold text-red-500" onclick="window.location.href='index.html';">ZENTRIX</button>
 
       <!-- Buttons -->
       <div class="hidden md:flex space-x-3">
-  <a href="subscribe.html" class="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700 inline-block text-center">Subscribe</a>
-  <a href="https://www.amd.com/en.html" target="_blank" rel="noopener" class="px-4 py-2 border border-red-600 rounded-lg hover:bg-red-600 inline-block text-center">Shop</a>
+  <a href="https://www.ifixit.com" target="_blank" rel="noopener" class="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700 inline-block text-center">Technical Support and Troubleshooting</a>
+  <a href="https://www.amd.com/en/products/processors/desktops/ryzen.html" target="_blank" rel="noopener" class="px-4 py-2 border border-red-600 rounded-lg hover:bg-red-600 inline-block text-center">Shop</a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -48,32 +48,26 @@
       <h2 class="text-4xl md:text-6xl font-bold mb-4">Your Trusted Partner for Advancing AI</h2>
       <p class="text-lg md:text-xl mb-6">Accelerate performance with cutting-edge processors and solutions.</p>
       <div class="flex justify-center gap-4">
-        <button class="px-6 py-3 bg-red-600 rounded-lg hover:bg-red-700 flex items-center gap-2 transition-all duration-300 shadow-lg group relative overflow-hidden" onmouseover="showTooltip(this, 'Discover AMD features and benefits!')" onmouseout="hideTooltip(this)">
+        <!-- Learn More: internal page -->
+        <button class="px-6 py-3 bg-red-600 rounded-lg hover:bg-red-700 flex items-center gap-2 transition-all duration-300 shadow-lg group relative overflow-hidden"
+          onclick="window.location.href='learnMore.html';"
+          onmouseover="showTooltip(this, 'Discover AMD features and benefits!')" onmouseout="hideTooltip(this)">
           <span class="absolute left-0 top-0 w-full h-full bg-red-700 opacity-0 group-hover:opacity-20 transition duration-300"></span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20h.01" /></svg>
+          <svg xmlns="learn" class="h-5 w-5 group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20h.01" /></svg>
           <span>Learn More</span>
-          <span class="tooltip hidden absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded shadow-lg">Discover AMD features and benefits!</span>
         </button>
-        <button class="px-6 py-3 border border-red-600 rounded-lg hover:bg-red-600 flex items-center gap-2 transition-all duration-300 shadow-lg group relative overflow-hidden" onmouseover="showTooltip(this, 'Explore AMD solutions and products!')" onmouseout="hideTooltip(this)">
+        <!-- Explore: external AMD page -->
+        <a href="https://www.amd.com/en/products" target="_blank" rel="noopener"
+          class="px-6 py-3 border border-red-600 rounded-lg hover:bg-red-600 flex items-center gap-2 transition-all duration-300 shadow-lg group relative overflow-hidden"
+          onmouseover="showTooltip(this, 'Explore AMD solutions and products!')" onmouseout="hideTooltip(this)">
           <span class="absolute left-0 top-0 w-full h-full bg-red-600 opacity-0 group-hover:opacity-10 transition duration-300"></span>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
           <span>Explore</span>
-          <span class="tooltip hidden absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded shadow-lg">Explore AMD solutions and products!</span>
-        </button>
-  <script>
-    function showTooltip(btn, text) {
-      const tooltip = btn.querySelector('.tooltip');
-      tooltip.textContent = text;
-      tooltip.classList.remove('hidden');
-    }
-    function hideTooltip(btn) {
-      const tooltip = btn.querySelector('.tooltip');
-      tooltip.classList.add('hidden');
-    }
-  </script>
+        </a>
+        <span class="tooltip hidden absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded shadow-lg z-10"></span>
       </div>
     </div>
-  </div>
+  </div>  
   
   <!-- PRODUCT GRID -->
   <section class="max-w-7xl mx-auto py-16 px-6">
@@ -82,7 +76,7 @@
       <!-- Card 1 -->
     <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform product-card flex flex-col justify-between">
       <div class="flex flex-col" style="min-height:120px;">
-        <img src="assets/processors/Ryzen-8000-series.jpg" alt="Product 1" class="product-img rounded-lg mb-4">
+        <img src="assets/Ryzen-8000-series.jpg" alt="Product 1" class="product-img rounded-lg mb-4">
         <h4 class="text-xl font-semibold mb-2">Processors</h4>
         <p class="text-gray-400 mb-4">Unleash ultimate gaming and productivity performance.</p>
       </div>
@@ -92,7 +86,7 @@
       <!-- Card 2 -->
     <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform product-card flex flex-col justify-between">
       <div class="flex flex-col" style="min-height:120px;">
-        <img src="assets/graphics/GPU.jpg" alt="Product 2" class="product-img rounded-lg mb-4">
+        <img src="assets/GPU.jpg" alt="Product 2" class="product-img rounded-lg mb-4">
         <h4 class="text-xl font-semibold mb-2">Dedicated Graphics Card</h4>
         <p class="text-gray-400 mb-4">Experience next level graphics and stunning visuals.</p>
       </div>
@@ -102,7 +96,7 @@
       <!-- Card 3 -->
     <div class="bg-gray-900 p-6 rounded-xl shadow-lg hover:scale-105 transition-transform product-card flex flex-col justify-between">
       <div class="flex flex-col" style="min-height:120px;">
-        <img src="assets/accelerators/Accelerators.jpg" alt="Product 3" class="product-img rounded-lg mb-4">
+        <img src="assets/Accelerators.jpg" alt="Product 3" class="product-img rounded-lg mb-4">
         <h4 class="text-xl font-semibold mb-2">Acceleratorss</h4>
         <p class="text-gray-400 mb-4">High performance CPUs designed for data centers.</p>
       </div>
